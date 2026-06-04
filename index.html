@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Biografia - Rebeka</title>
+
+<style>
+
+.perfil{
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff0000;
+    animation: neonPulse 1.5s infinite alternate;
+    cursor: pointer;
+}
+
+@keyframes neonPulse{
+    0%{
+        box-shadow: 0 0 5px #ff0000, 0 0 10px #ff0000, 0 0 20px #ff0000;
+        transform: scale(1);
+    }
+    100%{
+        box-shadow: 0 0 15px #ff0000, 0 0 30px #ff0000, 0 0 60px #ff0000, 0 0 90px rgba(255,0,0,0.6);
+        transform: scale(1.05);
+    }
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #000000, #120000, #2b0000);
+    color: white;
+}
+
+/* estrelas */
+body::before{
+content:"";
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(2px 2px at 20px 30px,#fff,transparent),
+radial-gradient(2px 2px at 200px 150px,#fff,transparent),
+radial-gradient(1px 1px at 400px 300px,#fff,transparent),
+radial-gradient(2px 2px at 700px 100px,#fff,transparent),
+radial-gradient(1px 1px at 1000px 400px,#fff,transparent),
+radial-gradient(1px 1px at 1200px 200px,#fff,transparent);
+opacity:.6;
+z-index:-1;
+}
+
+header {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+}
+
+h1 {
+    font-size: 60px;
+    color: #ff3b3b;
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+}
+
+.sub {
+    font-size: 20px;
+    color: #ffb3b3;
+}
+
+section {
+    padding: 60px 20px;
+    display: none;
+}
+
+.card {
+    background: rgba(255,0,0,0.08);
+    border: 1px solid rgba(255,0,0,0.3);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    background: #ff0000;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ff0000;
+}
+
+button:hover {
+    background: #ff3333;
+    box-shadow: 0 0 25px #ff0000;
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: 4px solid red;
+}
+
+.music span{
+    display:inline-block;
+    margin:5px;
+    padding:8px 12px;
+    border-radius:20px;
+    background:#8b0000;
+    border:1px solid #ff0000;
+    box-shadow:0 0 10px rgba(255,0,0,0.5);
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="container">
+
+    <h1>Rebeka Hadassa</h1>
+
+    <p class="sub">15 anos • apaixonada por física, matemática e astronomia</p>
+
+    <img src="c:\Users\Aluno\Pictures\imagem.jpg"
+         class="perfil"
+         onclick="abrirImagem()">
+
+    <br>
+
+    <button onclick="mostrarConteudo()">Clique aqui</button>
+
+</div>
+</header>
+
+<section id="conteudo" class="container">
+
+    <div class="card">
+        <h2>Sobre mim</h2>
+        <p>
+            Meu nome é Rebeka, nasci em 25/03/2011 e estou no 1º ano do Ensino Médio.
+            Faço curso de Análise e Desenvolvimento de Sistemas.
+        </p>
+        <p>
+            Sou de exatas e tenho uma grande paixão por física, matemática e astronomia.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Meus sonhos</h2>
+        <p>
+            Quero ser oficial da Marinha Mercante, conhecer novos lugares e talvez viver fora do Brasil
+            ou no Rio de Janeiro.
+        </p>
+        <p>
+            Também tenho interesse em seguir caminhos acadêmicos mais exigentes, como o ITA.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Minha relação com o vermelho</h2>
+        <p>
+            O vermelho representa intensidade, força e determinação.
+            Ele aparece aqui como um brilho neon em meio ao espaço escuro.
+        </p>
+    </div>
+
+    <div class="card">
+        <h2>Artistas que eu amo</h2>
+        <div class="music">
+            <span>Billie Eilish</span>
+            <span>Frank Ocean</span>
+            <span>Lana Del Rey</span>
+            <span>Brocasito</span>
+            <span>PumaPJL</span>
+            <span>Febre90s</span>
+            <span>Eminem</span>
+            <span>Tupac</span>
+            <span>Doja Cat</span>
+        </div>
+    </div>
+
+</section>
+
+<div class="modal" id="modal" onclick="fecharImagem()">
+    <img src="c:\Users\Aluno\Pictures\imagem.jpg">
+</div>
+
+<footer style="text-align:center; padding:20px;">
+Feito por Rebeka usando HTML, CSS e JS
+</footer>
+
+<script>
+
+function mostrarConteudo() {
+    document.getElementById("conteudo").style.display = "block";
+}
+
+function abrirImagem() {
+    document.getElementById("modal").style.display = "flex";
+}
+
+function fecharImagem() {
+    document.getElementById("modal").style.display = "none";
+}
+
+</script>
+
+</body>
+</html>
